@@ -50,6 +50,10 @@ class GeneradorLista{
             listaUsuarios.forEach { it.mostrarDatos() }
         }
     }
+
+    fun filtrarUsuario(minEdad: Int): List<Usuario> {
+        return listaUsuarios.filter { it.edad > minEdad }
+    }
 }
 
 
@@ -81,6 +85,11 @@ fun main() {
 
     println("\nLista de usuarios actualizada:")
     generLista.mostrarLista()
+
+    // Filtrar usuarios por edad >= 25
+    var usuariosFiltrados = generLista.filtrarUsuario(25)
+    println("Usuarios mayores o iguales a 25 años:")
+    usuariosFiltrados.forEach { println("Nombre: ${it.nombre}, Edad: ${it.edad}") }
 }
 
 
